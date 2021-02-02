@@ -1,0 +1,65 @@
+
+# !/bin/bash
+
+#the weird big JOSH prints purple and blinks
+
+echo "_______________________________________________________________________"
+echo "                                                                     "
+echo ""
+echo -e "               \e[1;5;35m   jjjjj   jjjjj  jjjj jjjj     \e[0m"
+echo -e "               \e[1;5;35m     jjjj jjj jj jjj   jjj      \e[0m"
+echo -e "               \e[1;5;35m jjj jjjj jj  jj jjjjj jjjjjjj  \e[0m"
+echo -e "               \e[1;5;35m jjj jjjj jj jjj   jjj jjj  jjj \e[0m"
+echo -e "               \e[1;5;35m  jjjjjj  jjjjj  jjjj  jjjj jjj \e[0m"
+echo ""
+echo ""
+echo "first number:" 
+read  n1 # read var name is how you get user input for first number
+echo "second number:"
+read  n2 # user input for second number
+echo ""
+#this select loop for choice in operand between + - * and /
+select operand in add minus multiply divide quit;
+do
+case $operand in #this case statement is part of the select loop but case statements aren't always in select loops
+                       
+     #this is where user input for fisrt number choice of operand and second number come together                 
+#1
+     add) 
+      echo "Addition"
+      echo $((n1+n2)) # the $(()) is important for printing as an integer if you just did echo $n1+$n2 it would print that as a string
+      echo "---------"
+      ;;
+#2
+   minus)
+      echo "Subtraction"
+      echo $((n1-n2))
+      echo "---------"
+      ;;
+#3
+multiply)
+      echo "Multiplication"
+      echo $((n1*n2))
+      echo "---------"
+      ;;
+#4  
+divide)
+      echo "Division"
+      echo $((n1/n2))
+      echo "---------"
+      ;;
+#5				
+    quit)  
+      echo "exiting"
+      echo "--------";
+	
+      exit 
+      ;;
+                   
+      *)
+      echo "please enter something valid dumbass"
+      echo "--------------------------------------"
+   			  
+   esac
+done		
+
